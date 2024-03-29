@@ -149,3 +149,53 @@ function getRandom(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
+
+// Use  selected criteria to generate new password
+function generatePassword() {
+  const options = getPasswordOptions();
+  if (!options) return '';
+
+  const possibleCharacters = [];
+  const guaranteedCharacters = [];
+  let generatedPassword = '';
+
+  if (options.hasSpecialCharacters) {
+      possibleCharacters.push(...specialCharacters);
+      guaranteedCharacters.push(getRandom(specialCharacters));
+  }
+
+  if (options.hasNumericCharacters) {
+      possibleCharacters.push(...numericCharacters);
+      guaranteedCharacters.push(getRandom(numericCharacters));
+  }
+
+  if (options.hasLowerCasedCharacters) {
+      possibleCharacters.push(...lowerCasedCharacters);
+      guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+  }
+
+  if (options.hasUpperCasedCharacters) {
+      possibleCharacters.push(...upperCasedCharacters);
+      guaranteedCharacters.push(getRandom(upperCasedCharacters));
+  }
+
+  for (let i = 0; i < options.length; i++) {
+      if (i < guaranteedCharacters.length) {
+          generatedPassword += guaranteedCharacters[i];
+      } else {
+          generatedPassword += getRandom(possibleCharacters);
+      }
+  }
+
+  return generatedPassword;
+}
+
+// Ensuring function works with updated generatePassword logic
+
+function writePassword() {
+  const password = generatePassword();
+  const passwordText = document.querySelector('#password');
+
+  passwordText.textContent = password;
+}
+
