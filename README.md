@@ -26,7 +26,7 @@ Follow the prompts to select your password criteria, including the length and ty
 The generated password will be displayed in the text area, where you can copy it for use.
 
 ## Screenshots
-![Screenshot of the Password Generator App showing a the name of the app, a text box where password will be generated, and button](Assets\Images\challenge 5 screenshot.png)
+![Screenshot of the Password Generator App showing a the name of the app, a text box where password will be generated, and button](https://github.com/LeoneJD/Password-Generator/blob/main/Assets/Images/challenge%205%20screenshot.png?raw=true)
 
 ## Contributing
 Contributions to this project are welcome! Please feel free to fork the repository, make your changes, and submit a pull request. If you have any suggestions or find any issues, please open an issue in the repository.
