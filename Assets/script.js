@@ -95,7 +95,8 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
 }
 
 // Function to generate password with user input
@@ -110,12 +111,12 @@ const generateBtn = document.querySelector('#generate');
 function writePassword() {
   const password = generatePassword();
   const passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
 
+
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+document.querySelector('#generate').addEventListener('click', writePassword); 
 
 // Prompt user for password criteria and return object containing those options.
 function getPasswordOptions() {
@@ -191,7 +192,6 @@ function generatePassword() {
 }
 
 // Ensuring function works with updated generatePassword logic
-
 function writePassword() {
   const password = generatePassword();
   const passwordText = document.querySelector('#password');
