@@ -116,3 +116,30 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+// Prompt user for password criteria and return object containing those options.
+function getPasswordOptions() {
+  const length = parseInt(prompt('How many characters would you like your password to be?'));
+  if (isNaN(length) || length < 8 || length > 128) {
+      alert('Password length must be a number between 8 and 128.');
+      return null;
+  }
+
+  const hasSpecialCharacters = confirm('Click OK to include special characters.');
+  const hasNumericCharacters = confirm('Click OK to include numeric characters.');
+  const hasLowerCasedCharacters = confirm('Click OK to include lowercase characters.');
+  const hasUpperCasedCharacters = confirm('Click OK to include uppercase characters.');
+
+  if (!hasSpecialCharacters && !hasNumericCharacters && !hasLowerCasedCharacters && !hasUpperCasedCharacters) {
+      alert('Must select at least one character type.');
+      return null;
+  }
+
+  return {
+      length,
+      hasSpecialCharacters,
+      hasNumericCharacters,
+      hasLowerCasedCharacters,
+      hasUpperCasedCharacters
+  };
+}
